@@ -6,28 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Data Filler</title>
     <script src="popup.js"></script>
+    <link rel="stylesheet" href="popup.css">
 </head>
 
 <body>
-    <form id="resumeForm">
-        <input type="text" id="name" placeholder="Name" required><br>
-        <input type="email" id="email" placeholder="Email" required><br>
-        <input type="text" id="mobile" placeholder="Mobile Number" required><br>
-        <input type="text" id="linkedinName" placeholder="LinkedIn Name"><br>
-        <input type="url" id="linkedinLink" placeholder="LinkedIn Link"><br>
-        <input type="text" id="githubName" placeholder="GitHub Name"><br>
-        <input type="url" id="githubLink" placeholder="GitHub Link"><br>
-        <textarea id="about" placeholder="About"></textarea><br>
-        <textarea id="skills" placeholder="Skills (separate with parentheses)"></textarea><br>
-        <textarea id="interests" placeholder="Interests (separate with parentheses)"></textarea><br>
-        <textarea id="educations"
-            placeholder="Education (format: [(name)(dgree)(start-year)(end-year)])"></textarea><br>
-        <textarea id="projects" placeholder="Projects (format: [(title)(link)(description)])"></textarea><br>
-        <textarea id="achivements" placeholder="Achivements (format: [(title)(description)])"></textarea><br>
-        <textarea id="hobbies" placeholder="Hobbies (separate with parentheses)"></textarea><br>
-        <button type="submit">Save</button>
-    </form>
-    <button type="button" id="fillStoredData">Fill with Stored Data</button>
+    <div class="container">
+        <form id="resumeForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Name" required><br>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email" required><br>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="text" id="mobile" placeholder="Mobile Number" required><br>
+
+            <label for="linkedinName">LinkedIn Name</label>
+            <input type="text" id="linkedinName" placeholder="LinkedIn Name"><br>
+
+            <label for="linkedinLink">LinkedIn Link</label>
+            <input type="url" id="linkedinLink" placeholder="LinkedIn Link"><br>
+
+            <label for="githubName">GitHub Name</label>
+            <input type="text" id="githubName" placeholder="GitHub Name"><br>
+
+            <label for="githubLink">GitHub Link</label>
+            <input type="url" id="githubLink" placeholder="GitHub Link"><br>
+
+            <label for="about">About</label>
+            <textarea id="about" placeholder="About"></textarea><br>
+
+            <label for="skills">Skills (separate with parentheses)</label>
+            <textarea id="skills" placeholder="Skills (separate with parentheses)"></textarea><br>
+
+            <label for="interests">Interests (separate with parentheses)</label>
+            <textarea id="interests" placeholder="Interests (separate with parentheses)"></textarea><br>
+
+            <label for="educations">Education (format: [(name)(dgree)(start-year)(end-year)])</label>
+            <textarea id="educations"
+                placeholder="Education (format: [(name)(dgree)(start-year)(end-year)])"></textarea><br>
+
+            <label for="projects">Projects (format: [(title)(link)(description)])</label>
+            <textarea id="projects" placeholder="Projects (format: [(title)(link)(description)])"></textarea><br>
+
+            <label for="achivements">Achivements (format: [(title)(description)])</label>
+            <textarea id="achivements" placeholder="Achivements (format: [(title)(description)])"></textarea><br>
+
+            <label for="hobbies">Hobbies (separate with parentheses)</label>
+            <textarea id="hobbies" placeholder="Hobbies (separate with parentheses)"></textarea><br>
+            <button type="submit">Save</button>
+        </form>
+        <div class="stored">
+            <button type="button" id="fillStoredData">Fill with Stored Data</button>
+        </div>
+    </div>
+
 </body>
 
 </html>
