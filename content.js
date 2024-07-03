@@ -232,4 +232,65 @@ function fillResumeData(data) {
   educationArray.forEach((edu, index) => {
     addEducation(edu, index);
   });
+
+  // Handle Skills fields
+  const hobbyArray = data.hobbies
+    .split(")")
+    .map((hobby) => hobby.replace("(", "").trim())
+    .filter((hobby) => hobby);
+
+  function addHobby(hobby, index) {
+    setTimeout(() => {
+      const addHobbyButton = Array.from(
+        document.querySelectorAll("button.ed-btn-link")
+      ).find((button) => button.textContent.includes("Add a Hobby"));
+      if (addHobbyButton) {
+        addHobbyButton.click();
+      }
+      setTimeout(() => {
+        const hobbyInputFields = document.querySelectorAll(
+          'input[placeholder="Enter Hobbies"]'
+        );
+        const newHobbyField = hobbyInputFields[hobbyInputFields.length - 1];
+        if (newHobbyField) {
+          setValueAndTriggerEvents(newHobbyField, hobby);
+        }
+      }, 500); // Delay to ensure new input field appears
+    }, 1000 * index); // Stagger delay for each skill
+  }
+
+  hobbyArray.forEach((hobby, index) => {
+    addHobby(hobby, index);
+  });
+
+  // Handle Skills fields
+  const achivementArray = data.achivements
+    .split(")")
+    .map((achivement) => achivement.replace("(", "").trim())
+    .filter((achivement) => achivement);
+
+  function addAchivement(achivement, index) {
+    setTimeout(() => {
+      const addAchivementButton = Array.from(
+        document.querySelectorAll("button.ed-btn-link")
+      ).find((button) => button.textContent.includes("Add a Achievement"));
+      if (addAchivementButton) {
+        addAchivementButton.click();
+      }
+      setTimeout(() => {
+        const achivementInputFields = document.querySelectorAll(
+          'input[placeholder="Enter Achievement"]'
+        );
+        const newAchivementField =
+          achivementInputFields[achivementInputFields.length - 1];
+        if (newAchivementField) {
+          setValueAndTriggerEvents(newAchivementField, achivement);
+        }
+      }, 500); // Delay to ensure new input field appears
+    }, 1000 * index); // Stagger delay for each skill
+  }
+
+  achivementArray.forEach((achivement, index) => {
+    addAchivement(achivement, index);
+  });
 }
