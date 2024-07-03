@@ -17,6 +17,10 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("skills").value = result.resumeData.skills || "";
       document.getElementById("interests").value =
         result.resumeData.interests || "";
+      document.getElementById("projects").value =
+        result.resumeData.projects || "";
+      document.getElementById("educations").value =
+        result.resumeData.educations || "";
     }
   });
 
@@ -37,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
         about: document.getElementById("about").value,
         skills: document.getElementById("skills").value,
         interests: document.getElementById("interests").value,
+        projects: document.getElementById("projects").value,
+        educations: document.getElementById("educations").value,
       };
 
       // Save the data in local storage

@@ -109,4 +109,127 @@ function fillResumeData(data) {
   interestsArray.forEach((interest, index) => {
     addInterest(interest, index);
   });
+  // Handle Projects fields
+  const projectsArray = data.projects
+    .split("]")
+    .map((project) => project.replace("[", "").trim())
+    .filter((project) => project);
+
+  function addProject(project, index) {
+    const [titlePart, linkPart, descPart] = project
+      .split(")(")
+      .map((part) => part.replace("(", "").replace(")", "").trim());
+    const title = titlePart;
+    const link = linkPart;
+    const description = descPart;
+
+    setTimeout(() => {
+      const addProjectButton = Array.from(
+        document.querySelectorAll("button.ed-btn-link")
+      ).find((button) => button.textContent.includes("Add Project"));
+      if (addProjectButton) {
+        addProjectButton.click();
+      }
+      setTimeout(() => {
+        const projectTitleFields = document.querySelectorAll(
+          'input[placeholder="ex. Resume Builder"]'
+        );
+        const newProjectTitleField =
+          projectTitleFields[projectTitleFields.length - 1];
+        const projectLinkFields = document.querySelectorAll(
+          'input[placeholder="project direct link"]'
+        );
+        const newProjectLinkField =
+          projectLinkFields[projectLinkFields.length - 1];
+        const projectDescFields = document.querySelectorAll(
+          "textarea.summary-use"
+        );
+        const newProjectDescField =
+          projectDescFields[projectDescFields.length - 1];
+
+        if (
+          newProjectTitleField &&
+          newProjectLinkField &&
+          newProjectDescField
+        ) {
+          setValueAndTriggerEvents(newProjectTitleField, title);
+          setValueAndTriggerEvents(newProjectLinkField, link);
+          setValueAndTriggerEvents(newProjectDescField, description);
+        }
+      }, 500); // Delay to ensure new input fields appear
+    }, 1000 * index); // Stagger delay for each project
+  }
+
+  projectsArray.forEach((project, index) => {
+    addProject(project, index);
+  });
+
+  // Handle Education fields
+  const educationArray = data.educations
+    .split("]")
+    .map((edu) => edu.replace("[", "").trim())
+    .filter((edu) => edu);
+
+  function addEducation(edu, index) {
+    const [schoolPart, degreePart, percentagePart, startYearPart, endYearPart] =
+      edu
+        .split(")(")
+        .map((part) => part.replace("(", "").replace(")", "").trim());
+    const school = schoolPart;
+    const degree = degreePart;
+    const percentage = percentagePart;
+    const startYear = startYearPart;
+    const endYear = endYearPart;
+
+    setTimeout(() => {
+      const addEducationButton = Array.from(
+        document.querySelectorAll("button.ed-btn-link")
+      ).find((button) => button.textContent.includes("Add Education"));
+      if (addEducationButton) {
+        addEducationButton.click();
+      } else {
+        console.log("education button not finded");
+      }
+      setTimeout(() => {
+        const schoolFields = document.querySelectorAll(
+          'input[placeholder="ex. L.D. College of Engineering"]'
+        );
+        const newSchoolField = schoolFields[schoolFields.length - 1];
+        const degreeFields = document.querySelectorAll(
+          'input[placeholder="Bachlor\'s in Information Technology / Higher Secondary Eduaction"]'
+        );
+        const newDegreeField = degreeFields[degreeFields.length - 1];
+        const startYearFields = document.querySelectorAll(
+          'input[placeholder="ex. 2020"]'
+        );
+        const newStartYearField = startYearFields[startYearFields.length - 1];
+        const endYearFields = document.querySelectorAll(
+          'input[placeholder="ex. 2024 or pursuing"]'
+        );
+        const newEndYearField = endYearFields[endYearFields.length - 1];
+        const percentageFields = document.querySelectorAll(
+          'input[placeholder="ex. 86.90 (CPI-0.5)*10"]'
+        );
+        const newPercentageField =
+          percentageFields[percentageFields.length - 1];
+        if (
+          newSchoolField &&
+          newDegreeField &&
+          newStartYearField &&
+          newEndYearField &&
+          newPercentageField
+        ) {
+          setValueAndTriggerEvents(newSchoolField, school);
+          setValueAndTriggerEvents(newDegreeField, degree);
+          setValueAndTriggerEvents(newPercentageField, percentage);
+          setValueAndTriggerEvents(newStartYearField, startYear);
+          setValueAndTriggerEvents(newEndYearField, endYear);
+        }
+      }, 500); // Delay to ensure new input fields appear
+    }, 1000 * index); // Stagger delay for each education entry
+  }
+
+  educationArray.forEach((edu, index) => {
+    addEducation(edu, index);
+  });
 }
