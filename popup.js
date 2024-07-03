@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
         result.resumeData.githubLink || "";
       document.getElementById("about").value = result.resumeData.about || "";
       document.getElementById("skills").value = result.resumeData.skills || "";
+      document.getElementById("interests").value =
+        result.resumeData.interests || "";
     }
   });
 
@@ -34,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         githubLink: document.getElementById("githubLink").value,
         about: document.getElementById("about").value,
         skills: document.getElementById("skills").value,
+        interests: document.getElementById("interests").value,
       };
 
       // Save the data in local storage

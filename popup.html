@@ -1,51 +1,9 @@
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-    <title>Resume Auto-Filler</title>
-    <link rel="stylesheet" href="popup.css">
-</head>
-
-<body>
-    <div class="container">
-        <form id="resume-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" required>
-
-            <label for="mobile">Mobile:</label>
-            <input type="tel" id="mobile" required>
-
-            <label for="linkedin_name">LinkedIn Name:</label>
-            <input type="text" id="linkedin_name">
-
-            <label for="linkedin_link">LinkedIn Link:</label>
-            <input type="url" id="linkedin_link">
-
-            <label for="github_name">GitHub Name:</label>
-            <input type="text" id="github_name">
-
-            <label for="github_link">GitHub Link:</label>
-            <input type="url" id="github_link">
-
-            <label for="about">About:</label>
-            <textarea id="about"></textarea>
-
-            <button type="submit">Save</button>
-        </form>
-    </div>
-    <script src="popup.js"></script>
-</body>
-
-</html> -->
-
-<!-- 2nd try -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Data Filler</title>
     <script src="popup.js"></script>
 </head>
@@ -60,14 +18,11 @@
         <input type="text" id="githubName" placeholder="GitHub Name"><br>
         <input type="url" id="githubLink" placeholder="GitHub Link"><br>
         <textarea id="about" placeholder="About"></textarea><br>
-        <!-- Add this inside the form in popup.html -->
-        <textarea id="skills" placeholder="Skills (comma separated)"></textarea><br>
-
+        <textarea id="skills" placeholder="Skills (separate with parentheses)"></textarea><br>
+        <textarea id="interests" placeholder="Interests (separate with parentheses)"></textarea><br>
         <button type="submit">Save</button>
     </form>
     <button type="button" id="fillStoredData">Fill with Stored Data</button>
-
-    <!-- <button id="fillStoredData">Fill with Stored Data</button> -->
 </body>
 
 </html>

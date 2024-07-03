@@ -55,10 +55,11 @@ function fillResumeData(data) {
     .map((skill) => skill.replace("(", "").trim())
     .filter((skill) => skill);
 
-  // Function to add and set a skill
   function addSkill(skill, index) {
     setTimeout(() => {
-      const addSkillButton = document.querySelector("button.ed-btn-link");
+      const addSkillButton = Array.from(
+        document.querySelectorAll("button.ed-btn-link")
+      ).find((button) => button.textContent.includes("Add Skill"));
       if (addSkillButton) {
         addSkillButton.click();
       }
@@ -74,8 +75,38 @@ function fillResumeData(data) {
     }, 1000 * index); // Stagger delay for each skill
   }
 
-  // Add each skill
   skillsArray.forEach((skill, index) => {
     addSkill(skill, index);
+  });
+
+  // Handle Interests fields
+  const interestsArray = data.interests
+    .split(")")
+    .map((interest) => interest.replace("(", "").trim())
+    .filter((interest) => interest);
+
+  function addInterest(interest, index) {
+    setTimeout(() => {
+      const addInterestButton = Array.from(
+        document.querySelectorAll("button.ed-btn-link")
+      ).find((button) => button.textContent.includes("Add Interest"));
+      if (addInterestButton) {
+        addInterestButton.click();
+      }
+      setTimeout(() => {
+        const interestInputFields = document.querySelectorAll(
+          'input[placeholder="Enter a Interest"]'
+        );
+        const newInterestField =
+          interestInputFields[interestInputFields.length - 1];
+        if (newInterestField) {
+          setValueAndTriggerEvents(newInterestField, interest);
+        }
+      }, 500); // Delay to ensure new input field appears
+    }, 1000 * index); // Stagger delay for each interest
+  }
+
+  interestsArray.forEach((interest, index) => {
+    addInterest(interest, index);
   });
 }
