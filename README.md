@@ -16,5 +16,8 @@ Store your information once and access it seamlessly whenever you need to create
 2. **Enable Developer Mode (Optional):** If you're installing an extension from outside the Chrome Web Store, you'll need to enable Developer mode for loading unpacked extensions. Toggle the switch next to "Developer mode" in the top-right corner to "ON."
 3. **Load the Unpacked Extension:** Click the "Load unpacked" button and navigate to the directory containing your extension's files. Select the folder and click "OK" to install the extension.
 
+# Format:
 
-
+<p align="center">
+  <img src="https://github.com/Aayush2302/Resume-Auto-3.0/blob/main/reference.jpg" alt="Natours" width="200">
+</p>
